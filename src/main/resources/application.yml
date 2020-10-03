@@ -1,0 +1,36 @@
+server:
+  port: 8000
+
+management:
+  endpoint:
+    health:
+      show-details: always
+      cache:
+        time-to-live: 5s
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  server:
+    port: 9000
+
+jwt:
+  secret: Z}|H>%M@I2){Riu^)lqyV<=lTLtB?n.uelJ1S<*djL5^7sh@t=
+  expiration: 86400000 # 1 day
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /swagger/api-docs
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+logging:
+  pattern:
+    level: "[REQ:%X{req_id:-none}] [USR:%X{user_id:-none}] %5p"

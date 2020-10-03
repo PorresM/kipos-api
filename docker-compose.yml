@@ -1,0 +1,23 @@
+version: '3'
+services:
+  maildev:
+    image: djfarrelly/maildev
+    restart: unless-stopped
+    ports:
+      - "2500:25"
+      - "8081:80"
+  db:
+    image: postgres:13.0-alpine
+    restart: unless-stopped
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: kipos_dev
+      POSTGRES_USER: kipos_dev
+      POSTGRES_PASSWORD: kipos_dev
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "8432:5432"
+
+volumes:
+  postgresql_data:

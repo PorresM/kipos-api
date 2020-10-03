@@ -1,0 +1,16 @@
+debug: true
+logging.level.com.kipos: DEBUG
+
+environment: dev
+
+spring:
+  flyway:
+    enabled: true
+    locations: classpath:db/migration, classpath:db/dev
+  datasource:
+    url: jdbc:postgresql://localhost:8432/kipos_dev
+    username: kipos_dev
+    password: kipos_dev
+  mail:
+    host: localhost
+    port: 2500
