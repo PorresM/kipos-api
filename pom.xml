@@ -8,7 +8,7 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.kipos</groupId>
+	<groupId>fr.mporres</groupId>
 	<artifactId>kipos-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Kipos API</name>
@@ -104,6 +104,11 @@
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId></groupId>
+            <artifactId></artifactId>
         </dependency>
 	</dependencies>
 
