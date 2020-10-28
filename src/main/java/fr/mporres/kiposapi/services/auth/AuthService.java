@@ -24,13 +24,11 @@ public class AuthService {
         this.tokenAuthenticationService = tokenAuthenticationService;
     }
 
-    public Optional<String> getToken(String email, String password) {
-        return userService.getUserByEmail(email).flatMap(user -> {
-            if (PasswordUtils.PASSWORD_ENCODER.matches(password, user.getPassword())) {
-                return Optional.of(tokenAuthenticationService.createNewToken(user.getId()));
-            }
-            return Optional.empty();
-        });
+    public Optional<String> getToken(User user, String password) {
+        if (PasswordUtils.PASSWORD_ENCODER.matches(password, user.getPassword())) {
+            return Optional.of(tokenAuthenticationService.createNewToken(user.getId()));
+        }
+        return Optional.empty();
     }
 
     public User getAuthUser() {

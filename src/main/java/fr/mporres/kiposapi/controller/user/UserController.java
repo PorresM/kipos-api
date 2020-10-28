@@ -45,7 +45,7 @@ public class UserController {
     UserResponse getUser(@PathVariable(value = "idUser") long idUser) {
         LOGGER.info("Fetching user {}", idUser);
         return userService.getUserById(idUser)
-            .map(user -> UserResponse.builder().login(user.getEmail()).role(user.getRole().name()).build())
+            .map(this::createResponse)
             .orElseThrow(() -> new ApiException(HttpStatus.BAD_REQUEST, String.format("Unable to retrieve user %d. Unknown user.", idUser)));
     }
 
@@ -89,7 +89,18 @@ public class UserController {
     UserResponse getCurentUser() {
         User loggedInUser = authService.getAuthUser();
         LOGGER.info("Logged user {} fetched", loggedInUser.getId());
-        return UserResponse.builder().login(loggedInUser.getEmail()).role(loggedInUser.getRole().name()).build();
+        return createResponse(loggedInUser);
     }
 
+    /**
+     * Create a UserResponse from a User
+     * @param user
+     * @return
+     */
+    public UserResponse createResponse(User user) {
+        return UserResponse.builder()
+            .email(user.getEmail())
+            .role(user.getRole().name())
+            .build();
+    }
 }

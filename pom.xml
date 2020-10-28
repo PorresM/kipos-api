@@ -107,8 +107,11 @@
         </dependency>
 
         <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
+            <groupId>fr.mporres</groupId>
+            <artifactId>yahoo-finance-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>/home/mporres/perso/yahoo-finance-api/target/yahoo-finance-api-0.0.1-SNAPSHOT.jar</systemPath>
         </dependency>
 	</dependencies>
 
