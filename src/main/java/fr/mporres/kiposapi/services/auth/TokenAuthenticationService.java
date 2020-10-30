@@ -49,7 +49,7 @@ public class TokenAuthenticationService {
             return Optional.empty();
         }
 
-        return userService.getUserById(Long.valueOf(userId)).map(UserAuthentication::new);
+        return userService.getUserById(Long.parseLong(userId)).map(UserAuthentication::new);
     }
 
     /**

@@ -5,9 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.autoconfigure.web.server.ManagementServerProperties;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.context.ApplicationContext;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
+@EntityScan(
+    basePackageClasses = {KiposApiApplication.class, Jsr310JpaConverters.class}
+)
 @SpringBootApplication
 public class KiposApiApplication {
 
