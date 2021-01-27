@@ -66,7 +66,7 @@ public class AuthController {
      *
      * @param request the user creation request
      */
-    @PostMapping(value = "/register") // TODO: valid is not working
+    @PostMapping(value = "/register")
     public void createUser(@RequestBody @Valid SignupRequest request) {
         userService.createUser(request.getEmail(), request.getPassword(), UserRole.USER)
             .orElseThrow(() -> new ApiException(HttpStatus.BAD_REQUEST, "Email already used"));

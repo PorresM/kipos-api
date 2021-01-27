@@ -9,13 +9,15 @@ public enum UserRole {
         Permission.USER_CREATE,
         Permission.USER_DELETE,
         Permission.USER_GET,
-        Permission.USER_GET_SELF
+        Permission.USER_GET_SELF,
+        Permission.STOCK_GET
     )),
     USER(Arrays.asList(
-        Permission.USER_GET_SELF
+        Permission.USER_GET_SELF,
+        Permission.STOCK_GET
     ));
 
-    private List<Permission> permissionList;
+    private final List<Permission> permissionList;
 
     UserRole(List<Permission> permissionList) {
         this.permissionList = permissionList;
